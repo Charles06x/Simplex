@@ -1,0 +1,31 @@
+<span>
+  <form #specs="ngForm" (ngSubmit)="createSolutionTable()">
+    
+    Número de variables: 
+    <input [(ngModel)]="nVariables" name="nVariables" type="number">
+
+    Número de restricciones: 
+    <input [(ngModel)]="nRestricciones" name="nRestricciones" type="number">
+
+    <input type="submit" value="Confirmar">
+
+  </form>
+  <button (click)="findSolution()">Solucionar</button>
+  <br>
+  <br>
+  <hr>
+  <br>
+
+</span>
+<span>
+  <form>
+  <ag-grid-angular style="width: 100%;height: 300px;" class="ag-theme-balham"  [rowData]="rowData" [columnDefs]="columnDefs">
+      <div *ngIf="formGroup" [formGroup]="formGroup">
+          <mat-form-field [floatLabel]="'never'" style="width: 100%">
+              <input matInput [formControlName]="key" [id]="key" placeholder="Enter {{columnName}}">
+          </mat-form-field>
+      </div>
+  </ag-grid-angular>
+</form>
+<h3>{{nResult}}</h3>
+</span>
